@@ -1,8 +1,20 @@
 window.onload = function () {
+    let scr_w = window.screen.width;
+    let scr_h = window.screen.height;
+
     document.body.style.backgroundImage = "url(santa.png)";
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundAttachment = "fixed";
-    document.body.style.backgroundPosition = "33% 10%";
+    document.body.style.backgroundPosition = '33% 10%';
+
+
+    let content = document.querySelector('.content');
+    content.style.marginLeft = scr_w / 8 + 'px';
+    content.style.marginTop = scr_h / 20 + 'px';
+    console.log(Math.floor(scr_h / 20));
+
+    // let header = document.querySelector('.counter-header');
+    // header.style.position = '70% 10%';
 
     const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 
@@ -19,13 +31,10 @@ window.onload = function () {
     let days_word = null;
     if([1].includes(till_the_new_year % 10) && till_the_new_year % 100 != 11){
         days_word = 'день';
-        console.log('1');
     } else if([2, 3, 4].includes(till_the_new_year % 10)){
         days_word = 'дня';
-        console.log('2');
     } else {
         days_word = 'дней';
-        console.log('3');
     }
 
     let date = document.querySelector('.counter-time');
