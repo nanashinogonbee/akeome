@@ -1,0 +1,30 @@
+.counter{
+  font-family: Tahoma;
+  font-size: 20px;
+  text-align: center;
+  }
+
+.counter-header{
+  color: #2982EA;
+  font-weight: bold;
+  text-shadow:
+    1px 0 1px #000,
+    0 1px 1px #000,
+    -1px 0 1px #000,
+    0 -1px 1px #000;
+  margin-top: 50px;
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -o-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+  -ms-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -webkit-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+  }
+
+.counter-time{
+  color: #f00;
+  }
