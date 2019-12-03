@@ -31,6 +31,9 @@ window.onload = function () {
         days_word = 'дней';
     }
 
+    let till_the_new_year_caption = document.querySelector('.counter-pre');
+    till_the_new_year_caption.innerHTML = "До Нового Года";
+
     let date = document.querySelector('.counter-time');
     date.innerHTML = till_the_new_year + ' ' + days_word;
     console.log();
