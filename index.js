@@ -1,26 +1,21 @@
 window.onload = function () {
-    let scr_w = window.screen.width;
-    let scr_h = window.screen.height;
+    function dateDiffInDays(a, b) {
+      const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+      const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+      return Math.floor((utc2 - utc1) / _MS_PER_DAY);
+    }
+
+    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
 
     document.body.style.backgroundImage = 'url(santa.png)';
     document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.backgroundAttachment = 'fixed';
     document.body.style.backgroundPosition = 'top center';
 
-    let content = document.querySelector('.content');
-    content.style.marginTop = scr_h / 20 + 'px';
-
-    const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-
-    function dateDiffInDays(a, b) {
-      const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-      const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-      return Math.floor((utc2 - utc1) / _MS_PER_DAY);
-      }
 
     let now_date = new Date();
     let next_year = now_date.getFullYear() + 1;
-    let new_year = new Date('1/1/' + next_year);
+    let new_year = new Date(`1/1/${next_year}`);
     let till_the_new_year = dateDiffInDays(now_date, new_year);
     let days_word = null;
     if([1].includes(till_the_new_year % 10) && till_the_new_year % 100 != 11){
@@ -31,10 +26,7 @@ window.onload = function () {
         days_word = 'дней';
     }
 
-    let till_the_new_year_caption = document.querySelector('.counter-pre');
-    till_the_new_year_caption.innerHTML = "До Нового Года";
-
-    let date = document.querySelector('.counter-time');
-    date.innerHTML = till_the_new_year + ' ' + days_word;
-    console.log();
+    document.querySelector('.content').style.marginTop = `${window.screen.height / 20}px`;
+    document.querySelector('.counter-pre').innerHTML = 'До Нового Года';
+    document.querySelector('.counter-time').innerHTML = `${till_the_new_year} ${days_word}`;
     }
